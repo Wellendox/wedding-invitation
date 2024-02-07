@@ -1,6 +1,8 @@
 # wedding-invitation
 A page where people can accept / decline a fictional wedding invitation. Made with next.js 14
 
+# This project is not yet done and subject to change in the coming weeks / months
+
 # Setup
 
 ## Node
