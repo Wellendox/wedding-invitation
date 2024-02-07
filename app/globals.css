@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer tailwind-base, primereact, tailwind-utilities;
+
+@layer tailwind-base {
+  @tailwind base;
+}
+
+@layer tailwind-utilities {
+  @tailwind components;
+  @tailwind utilities;
+}
+
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "primereact/resources/themes/tailwind-light/theme.css";
+@import "primereact/resources/primereact.min.css";
+
+body {
+  background-image: url("../public/weddingbg.jpg");
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: repeat;
+  height: 100vh;
+  overflow-x: hidden;
+}
+
+.card-transparency {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(10px);
+}
+/* Override PrimeReact input styles */
+.p-inputtext {
+  border: 1px solid #ccc;
+}
+
+/* Override PrimeReact checkbox styles */
+.p-checkbox .p-checkbox-box {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* Override PrimeReact checkbox inner box styles */
+.p-checkbox .p-checkbox-icon {
+  border: none;
+}

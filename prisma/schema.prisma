@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model companion {
+  Id         Int               @id @default(autoincrement()) @db.UnsignedInt
+  GuestId    Int               @db.UnsignedInt
+  Name       String            @db.VarChar(50)
+  Status     companion_Status?
+  Vegetarian Boolean
+  Vegan      Boolean
+  Hotel      Boolean
+  Child      Boolean?
+  guest      guest             @relation(fields: [GuestId], references: [Id], onDelete: Cascade, map: "FK__guest")
+
+  @@index([GuestId], map: "FK__guest")
+}
+
+model guest {
+  Id         Int          @id @default(autoincrement()) @db.UnsignedInt
+  Name       String       @db.VarChar(50)
+  Email      String       @db.VarChar(50)
+  Status     guest_Status
+  Vegetarian Boolean
+  Vegan      Boolean
+  Hotel      Boolean
+  companion  companion[]
+}
+
+enum guest_Status {
+  Accepted
+  Refused
+}
+
+enum companion_Status {
+  Accepted
+  Refused
+}
